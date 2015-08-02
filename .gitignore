@@ -1,0 +1,13 @@
+###########
+# Local and temporary files
+###########
+
+# Bower directory
+bower_components/
+
+###########
+# IDE
+###########
+
+# Netbeans
+nbproject/
