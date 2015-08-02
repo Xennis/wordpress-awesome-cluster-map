@@ -1,10 +1,13 @@
-function OSMClusterMap(tileLayer, mapOptions) {
+/**
+ * 
+ * @param {string} tileLayerURL Tile layer URL
+ * @param {object} tileLayerOptions Tile layer options
+ * @param {object} mapOptions Map options
+ * @param {number} maxClusterRadius Max cluster radius in pixel
+ */
+function OSMClusterMap(tileLayerURL, tileLayerOptions, mapOptions, maxClusterRadius) {
 
-	var tileLayerMap = L.tileLayer(tileLayer.url, {
-		type: 'map',
-		attribution: tileLayer.attribution,
-		subdomains: tileLayer.subdomains
-	});
+	var tileLayerMap = L.tileLayer(tileLayerURL, tileLayerOptions);
 
 	var map = L.map(mapOptions.containerElement, {
 		center: mapOptions.center,
@@ -15,7 +18,9 @@ function OSMClusterMap(tileLayer, mapOptions) {
 	// Remove "Leaflet" attribution prefix
 	map.attributionControl.setPrefix(false);
 
-	var markerClusterGroup = L.markerClusterGroup();
+	var markerClusterGroup = L.markerClusterGroup({
+		maxClusterRadius: maxClusterRadius
+	});
 	map.addLayer(markerClusterGroup);			
 	
 	/**
