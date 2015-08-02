@@ -36,16 +36,16 @@ add_action('wp_enqueue_scripts', 'osmcl_enqueue_scripts');
 function osmcl_enqueue_scripts() {
 
 	// Style
-	wp_enqueue_style('bootstrap', osmcl_getBowerResource('/bootstrap-css-only/css/bootstrap.min.css'));	
-	wp_enqueue_style('leaflet', osmcl_getBowerResource('/leaflet/dist/leaflet.css'));
-    wp_enqueue_style('MarkerCluster', osmcl_getBowerResource('/leaflet.markerclusterer/dist/MarkerCluster.css'));
-    wp_enqueue_style('MarkerCluster.Default', osmcl_getBowerResource('/leaflet.markerclusterer/dist/MarkerCluster.Default.css'));
-	wp_enqueue_style('Leaflet.awesome-markers', osmcl_getBowerResource('/Leaflet.awesome-markers/dist/leaflet.awesome-markers.css'));	
+	wp_enqueue_style('osmcl_bootstrap_glyphicons', 'http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css');	
+	wp_enqueue_style('osmcl_leaflet', osmcl_getBowerResource('/leaflet/dist/leaflet.css'));
+    wp_enqueue_style('osmcl_leaflet_markercluster', osmcl_getBowerResource('/leaflet.markerclusterer/dist/MarkerCluster.css'));
+    wp_enqueue_style('osmcl_leaflet_markercluster_default', osmcl_getBowerResource('/leaflet.markerclusterer/dist/MarkerCluster.Default.css'));
+	wp_enqueue_style('osmcl_leaflet_awesome_markers', osmcl_getBowerResource('/Leaflet.awesome-markers/dist/leaflet.awesome-markers.css'));	
 
 	// Script
-    wp_enqueue_script('leaflet', osmcl_getBowerResource('/leaflet/dist/leaflet.js'));
-    wp_enqueue_script('leaflet.markerclusterer', osmcl_getBowerResource('/leaflet.markerclusterer/dist/leaflet.markercluster.js'));
-    wp_enqueue_script('Leaflet.awesome-markers', osmcl_getBowerResource('/Leaflet.awesome-markers/dist/leaflet.awesome-markers.min.js'));
+    wp_enqueue_script('osmcl_leaflet', osmcl_getBowerResource('/leaflet/dist/leaflet.js'));
+    wp_enqueue_script('osmcl_leaflet_markercluster', osmcl_getBowerResource('/leaflet.markerclusterer/dist/leaflet.markercluster.js'));
+    wp_enqueue_script('osmcl_Leaflet_awesome_markers', osmcl_getBowerResource('/Leaflet.awesome-markers/dist/leaflet.awesome-markers.min.js'));
     wp_enqueue_script(OSMCL_NAME, plugins_url('/js/osm-cluster-map.js', __FILE__));
 }
 
