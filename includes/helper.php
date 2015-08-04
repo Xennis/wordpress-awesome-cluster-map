@@ -8,8 +8,8 @@
  * @param string $path Path relative to the Bower folder
  * @return string Absolute path of the resource
  */
-function osmcl_helper_getBowerResource($path) {
-	return plugins_url('/js/bower_components'.$path, __FILE__);
+function acm_helper_getBowerResource($path) {
+	return plugins_url('../js/bower_components'.$path, __FILE__);
 }
 
 /**
@@ -19,7 +19,7 @@ function osmcl_helper_getBowerResource($path) {
  * 
  * @param string $link URL
  */
-function osmcl_helper_help_link($link) {
+function acm_helper_help_link($link) {
 	echo '<a href="'.$link.'" target="_blank"><div class="dashicons dashicons-editor-help"></div></a>';
 }
 
@@ -31,7 +31,7 @@ function osmcl_helper_help_link($link) {
  * @param array $tabs All tabs
  * @param string $current Current tab
  */
-function osmcl_helper_admin_tabs($page, array $tabs, $current = NULL){
+function acm_helper_admin_tabs($page, array $tabs, $current = NULL){
     echo '<h2 class="nav-tab-wrapper">';
     foreach($tabs as $anchor => $name){
 		$class = ($anchor == $current) ? ' nav-tab-active' : '';

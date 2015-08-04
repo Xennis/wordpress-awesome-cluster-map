@@ -2,15 +2,15 @@
 /**
  * Admin menu hook: Add pages to menu.
  */
-function osmcl_admin_menu() {
-    add_options_page('Cluster map', 'Cluster map', 'manage_options', 'osmcl-options', 'osmcl_page_options');
+function acm_admin_menu() {
+    add_options_page('Cluster map', 'Cluster map', 'manage_options', 'acm-options', 'acm_page_options');
 }
-add_action('admin_menu', 'osmcl_admin_menu');
+add_action('admin_menu', 'acm_admin_menu');
 
 /**
  * Page options
  */
-function osmcl_page_options() {
+function acm_page_options() {
 	if ( isset ( $_GET['tab'] ) ) {
 		$tab = $_GET['tab'];
 	} else {
@@ -18,16 +18,16 @@ function osmcl_page_options() {
 	}
 
 	$tabs = array(
-		'map' => __('Map', OSMCL_NAME),
-		'clustering' => __('Clustering', OSMCL_NAME)
+		'map' => __('Map', ACM_NAME),
+		'clustering' => __('Clustering', ACM_NAME)
 	);
 ?>
 <div class="wrap">
     <h2>Awesome Cluster Map <?php _e('Settings'); ?></h2>
-	<?php echo osmcl_helper_admin_tabs($_GET['page'], $tabs, $tab); ?>
+	<?php echo acm_helper_admin_tabs($_GET['page'], $tabs, $tab); ?>
     <form method="post" action="options.php">
-		<?php settings_fields(OSMCL_NAME); ?>
-		<?php do_settings_sections(OSMCL_NAME); ?>
+		<?php settings_fields(ACM_NAME); ?>
+		<?php do_settings_sections(ACM_NAME); ?>
         <table class="form-table">
 		<?php switch ($tab) {
 			case 'map':
@@ -37,7 +37,7 @@ function osmcl_page_options() {
                 <td><input type="text" name="map_tileLayerURL" class="regular-text" value="<?php echo esc_attr( get_option('map_tileLayerURL') ); ?>" /></td>
             </tr>
             <tr>
-                <th><?php _e('Tile layer options'); ?> <?php osmcl_helper_help_link('http://leafletjs.com/reference.html#tilelayer-options'); ?></th>
+                <th><?php _e('Tile layer options'); ?> <?php acm_helper_help_link('http://leafletjs.com/reference.html#tilelayer-options'); ?></th>
                 <td><textarea name="map_tileLayerOptions" class="large-text" rows="10" cols="50"><?php echo esc_attr( get_option('map_tileLayerOptions') ); ?></textarea></td>
             </tr>
 <?php
@@ -45,7 +45,7 @@ function osmcl_page_options() {
 			case 'clustering':
 ?>
            <tr>
-			   <th><?php _e('Max cluster radius'); ?> <?php osmcl_helper_help_link('https://github.com/Leaflet/Leaflet.markercluster#all-options'); ?></th>
+			   <th><?php _e('Max cluster radius'); ?> <?php acm_helper_help_link('https://github.com/Leaflet/Leaflet.markercluster#all-options'); ?></th>
                 <td><input type="number" name="clustering_maxClusterRadius" class="small-text" value="<?php echo esc_attr( get_option('clustering_maxClusterRadius') ); ?>" /> pixel</td>
             </tr>
 <?php

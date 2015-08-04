@@ -25,7 +25,7 @@ function cluster_map($atts, $content) {
 	return <<<HTML
 <div id="map" style="width: {$a['width']}; height: {$a['height']};"></div>
 <script>
-	var clusterMap = OSMClusterMap('{$tileLayerURL}', {$tileLayerOptions}, {
+	var clusterMap = AwesomeClusterMap('{$tileLayerURL}', {$tileLayerOptions}, {
 		containerElement: 'map',
 		center: {$a['center']},
 		zoom: {$a['zoom']}

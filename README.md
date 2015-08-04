@@ -1,4 +1,4 @@
-# WordPress plugin OpenStreetMap marker cluster map
+# WordPress Plugin Awesome Cluster Map (OpenStreetMap, Leaflet)
 
 WordPress plugin to create awesome marker cluster maps with OpenStreetMap (OSM).
 This plugin is build with [Leaflet](http://leafletjs.com/) as OSM JavaScript

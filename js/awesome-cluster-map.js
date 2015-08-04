@@ -5,7 +5,7 @@
  * @param {object} mapOptions Map options
  * @param {number} maxClusterRadius Max cluster radius in pixel
  */
-function OSMClusterMap(tileLayerURL, tileLayerOptions, mapOptions, maxClusterRadius) {
+function AwesomeClusterMap(tileLayerURL, tileLayerOptions, mapOptions, maxClusterRadius) {
 
 	var tileLayerMap = L.tileLayer(tileLayerURL, tileLayerOptions);
 

@@ -1,5 +1,5 @@
 {
-  "name": "wp-plugin-osm-cluster-map",
+  "name": "wp-awesome-cluster-map",
   "description": "WordPress plugin to create awesome marker cluster maps with OpenStreetMap (Leaflet)",
   "dependencies": {
 	"leaflet": "~0.7.x",
