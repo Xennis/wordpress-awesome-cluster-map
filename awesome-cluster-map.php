@@ -13,7 +13,7 @@ Text Domain: awesome-cluster-map
  */
 define('ACM_NAME', dirname(plugin_basename( __FILE__ )));
 /**
- * Plugin directory 
+ * Plugin directory
  */
 define('ACM_DIR', WP_PLUGIN_DIR.'/'.ACM_NAME);
 require_once(ACM_DIR.'/includes/helper.php');
@@ -31,15 +31,15 @@ subdomains: \'1234\'
 }',
 		'clustering_maxClusterRadius' => 80
 	);
-	
+
 	foreach ($settings as $key => $value) {
 		register_setting(ACM_NAME, $key);
-		
+
 		if( !get_option( $key ) ) {
 			update_option($key, $value);
 		}
 	}
-} 
+}
 add_action('admin_init', 'acm_admin_init');
 
 /**
@@ -48,22 +48,23 @@ add_action('admin_init', 'acm_admin_init');
 function acm_enqueue_scripts() {
 
 	// Style
-	wp_enqueue_style('acm_bootstrap_glyphicons', 'http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css');	
+	wp_enqueue_style('acm_bootstrap_glyphicons', 'http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css');
 	wp_enqueue_style('acm_leaflet', acm_helper_getBowerResource('/leaflet/dist/leaflet.css'));
     wp_enqueue_style('acm_leaflet_markercluster', acm_helper_getBowerResource('/leaflet.markerclusterer/dist/MarkerCluster.css'));
     wp_enqueue_style('acm_leaflet_markercluster_default', acm_helper_getBowerResource('/leaflet.markerclusterer/dist/MarkerCluster.Default.css'));
-	wp_enqueue_style('acm_leaflet_awesome_markers', acm_helper_getBowerResource('/Leaflet.awesome-markers/dist/leaflet.awesome-markers.css'));	
+	wp_enqueue_style('acm_leaflet_awesome_markers', acm_helper_getBowerResource('/Leaflet.awesome-markers/dist/leaflet.awesome-markers.css'));
 
 	// Script
-    wp_enqueue_script('acm_leaflet', acm_helper_getBowerResource('/leaflet/dist/leaflet.js'));
-    wp_enqueue_script('acm_leaflet_markercluster', acm_helper_getBowerResource('/leaflet.markerclusterer/dist/leaflet.markercluster.js'));
-    wp_enqueue_script('acm_Leaflet_awesome_markers', acm_helper_getBowerResource('/Leaflet.awesome-markers/dist/leaflet.awesome-markers.min.js'));
-    wp_enqueue_script(ACM_NAME, plugins_url('/js/'.ACM_NAME.'.js', __FILE__));
+//    wp_enqueue_script('acm_leaflet', acm_helper_getBowerResource('/leaflet/dist/leaflet.js'));
+//    wp_enqueue_script('acm_leaflet_markercluster', acm_helper_getBowerResource('/leaflet.markerclusterer/dist/leaflet.markercluster.js'));
+//    wp_enqueue_script('acm_Leaflet_awesome_markers', acm_helper_getBowerResource('/Leaflet.awesome-markers/dist/leaflet.awesome-markers.min.js'));
+//    wp_enqueue_script(ACM_NAME, plugins_url('/js/'.ACM_NAME.'.js', __FILE__));
+    wp_enqueue_script(ACM_NAME, plugins_url('/dist/'.ACM_NAME.'.min.js', __FILE__));
 }
 add_action('wp_enqueue_scripts', 'acm_enqueue_scripts');
 
 /**
- * 
+ *
  * @param array $links
  */
 function acm_plugin_action_links( $links ) {

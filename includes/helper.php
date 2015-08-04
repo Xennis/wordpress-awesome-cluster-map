@@ -9,7 +9,7 @@
  * @return string Absolute path of the resource
  */
 function acm_helper_getBowerResource($path) {
-	return plugins_url('../js/bower_components'.$path, __FILE__);
+	return plugins_url('../src/js/bower_components'.$path, __FILE__);
 }
 
 /**

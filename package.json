@@ -1,0 +1,10 @@
+{
+  "name": "wp-plugin-awesome-cluster",
+  "version": "0.1.0",
+  "devDependencies": {
+    "webpack": "*",
+	  "style-loader": "*",
+	  "css-loader": "*",
+    "url-loader": "*"
+  }
+}
