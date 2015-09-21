@@ -10,7 +10,8 @@ function cluster_map($atts, $content) {
         'height' => '500px',
 		'width' => '100%',
 		'center' => '[0, 0]',
-		'zoom' => 3
+		'zoom' => 3,
+		'line' => 'false'
 	), $atts);
 	
 	// Convert strings into JSON arrays, so that JavaScript can handle it
@@ -32,6 +33,9 @@ function cluster_map($atts, $content) {
 	}, {$maxClusterRadius});
 
 	clusterMap.convertContent({$content});
+	if ({$a['line']}) {
+		clusterMap.createPolyline();
+	}
 </script>
 HTML;
 }

@@ -21,7 +21,9 @@ function AwesomeClusterMap(tileLayerURL, tileLayerOptions, mapOptions, maxCluste
 	var markerClusterGroup = L.markerClusterGroup({
 		maxClusterRadius: maxClusterRadius
 	});
-	map.addLayer(markerClusterGroup);			
+	map.addLayer(markerClusterGroup);	
+	
+	var polylineLatLng = [];
 	
 	/**
 	 * Creats a marker and adds it to the marker cluster group.
@@ -32,6 +34,7 @@ function AwesomeClusterMap(tileLayerURL, tileLayerOptions, mapOptions, maxCluste
 	 * @param {string} text
 	 */
 	var createMarker = function(postion, icon, color, text) {
+		// Create marker
 		var marker = L.marker(postion, {
 			icon: L.AwesomeMarkers.icon({
 				icon: icon,
@@ -39,7 +42,9 @@ function AwesomeClusterMap(tileLayerURL, tileLayerOptions, mapOptions, maxCluste
 			})
 		})
 		.bindPopup(text);
-
+		// Add marker's postion to polyline array
+		polylineLatLng.push(marker.getLatLng());
+		// Add marker to cluster
 		markerClusterGroup.addLayer(marker);
 	};
 	
@@ -48,16 +53,23 @@ function AwesomeClusterMap(tileLayerURL, tileLayerOptions, mapOptions, maxCluste
 		 * Converts the given CSV data into marker.
 		 * 
 		 * @param {string} csvData Data in CSV format
-		 * @returns {undefined}
 		 */
 		convertContent: function(csvData) {
-			
 			for (var i=0; i<csvData.length; i++) {
 				var item = csvData[i].split(',');
 				if (item.length === 5) {
 					createMarker([item[0], item[1]], item[2], item[3], item[4]);
 				}
 			}
-		} 
+		},
+		/**
+		 * Creates a polyline by the positions of all previous added markers.
+		 */
+		createPolyline: function() {
+			L.polyline(polylineLatLng, {
+				color: 'black',
+				fillOpacity: '0.9'
+			}).addTo(map);
+		}
 	};
 }
