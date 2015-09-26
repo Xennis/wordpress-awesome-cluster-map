@@ -24,6 +24,20 @@ function AwesomeClusterMap(tileLayerURL, tileLayerOptions, mapOptions, maxCluste
 		var miniMap = new L.Control.MiniMap(tileLayerMap, {
 			toggleDisplay: true
 		}).addTo(map);
+		
+		/*
+		 * Remove minimap on small screens
+		 */
+		map.on('resize', function(e) {
+			if (e.newSize.x < 400 && mapOptions.minimap) {
+				map.removeControl(miniMap);
+				mapOptions.minimap = false;
+			}
+			else if (e.newSize.x >= 400 && !mapOptions.minimap) {
+				map.addControl(miniMap);
+				mapOptions.minimap = true;				
+			}
+		});	
 	}
 
 	// Setup cluster group
