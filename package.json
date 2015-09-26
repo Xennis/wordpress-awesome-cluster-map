@@ -1,0 +1,6 @@
+{
+  "name": "wp-awesome-cluster-map",
+  "dependencies": {
+    "leaflet-minimap": "~2.2.x"
+  }
+}

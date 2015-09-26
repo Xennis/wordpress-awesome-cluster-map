@@ -11,7 +11,8 @@ function cluster_map($atts, $content) {
 		'width' => '100%',
 		'center' => '[0, 0]',
 		'zoom' => 3,
-		'line' => 'false'
+		'line' => 'false',
+		'minimap' => 'true'
 	), $atts);
 	
 	// Convert strings into JSON arrays, so that JavaScript can handle it
@@ -29,7 +30,8 @@ function cluster_map($atts, $content) {
 	var clusterMap = AwesomeClusterMap('{$tileLayerURL}', {$tileLayerOptions}, {
 		containerElement: 'map',
 		center: {$a['center']},
-		zoom: {$a['zoom']}
+		zoom: {$a['zoom']},
+		minimap: {$a['minimap']} 
 	}, {$maxClusterRadius});
 
 	clusterMap.convertContent({$content});

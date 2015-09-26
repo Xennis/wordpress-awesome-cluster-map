@@ -16,7 +16,7 @@ define('ACM_NAME', dirname(plugin_basename( __FILE__ )));
  * Plugin directory 
  */
 define('ACM_DIR', WP_PLUGIN_DIR.'/'.ACM_NAME);
-require_once(ACM_DIR.'/includes/helper.php');
+require_once(ACM_DIR.'/src/php/helper.php');
 
 /**
  * Admin init: register settings
@@ -53,12 +53,14 @@ function acm_enqueue_scripts() {
     wp_enqueue_style('acm_leaflet_markercluster', acm_helper_getBowerResource('/leaflet.markerclusterer/dist/MarkerCluster.css'));
     wp_enqueue_style('acm_leaflet_markercluster_default', acm_helper_getBowerResource('/leaflet.markerclusterer/dist/MarkerCluster.Default.css'));
 	wp_enqueue_style('acm_leaflet_awesome_markers', acm_helper_getBowerResource('/Leaflet.awesome-markers/dist/leaflet.awesome-markers.css'));	
+	wp_enqueue_style('acm_leaflet_minimap', plugins_url('node_modules/leaflet-minimap/dist/Control.MiniMap.min.css', __FILE__ ) );	
 
 	// Script
     wp_enqueue_script('acm_leaflet', acm_helper_getBowerResource('/leaflet/dist/leaflet.js'));
     wp_enqueue_script('acm_leaflet_markercluster', acm_helper_getBowerResource('/leaflet.markerclusterer/dist/leaflet.markercluster.js'));
     wp_enqueue_script('acm_Leaflet_awesome_markers', acm_helper_getBowerResource('/Leaflet.awesome-markers/dist/leaflet.awesome-markers.min.js'));
-    wp_enqueue_script(ACM_NAME, plugins_url('/src/js/'.ACM_NAME.'.js', __FILE__), array('jquery'));	
+    wp_enqueue_script('acm_Leaflet_minimap', plugins_url('node_modules/leaflet-minimap/dist/Control.MiniMap.min.js', __FILE__) );
+	wp_enqueue_script(ACM_NAME, plugins_url('/src/js/'.ACM_NAME.'.js', __FILE__), array('jquery'));	
 }
 add_action('wp_enqueue_scripts', 'acm_enqueue_scripts');
 

@@ -7,8 +7,8 @@
  */
 function AwesomeClusterMap(tileLayerURL, tileLayerOptions, mapOptions, maxClusterRadius) {
 
+	// Setup tile layer and map
 	var tileLayerMap = L.tileLayer(tileLayerURL, tileLayerOptions);
-
 	var map = L.map(mapOptions.containerElement, {
 		center: mapOptions.center,
 		zoom: mapOptions.zoom,
@@ -18,11 +18,21 @@ function AwesomeClusterMap(tileLayerURL, tileLayerOptions, mapOptions, maxCluste
 	// Remove "Leaflet" attribution prefix
 	map.attributionControl.setPrefix(false);
 
+	// Add minimap
+	if (mapOptions.minimap) {
+		var tileLayerMap = L.tileLayer(tileLayerURL, tileLayerOptions);
+		var miniMap = new L.Control.MiniMap(tileLayerMap, {
+			toggleDisplay: true
+		}).addTo(map);
+	}
+
+	// Setup cluster group
 	var markerClusterGroup = L.markerClusterGroup({
 		maxClusterRadius: maxClusterRadius
 	});
 	map.addLayer(markerClusterGroup);	
 	
+	// Setup polyline
 	var polylineLatLng = [];
 	
 	/**
