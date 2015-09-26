@@ -2,6 +2,9 @@
 # Local and temporary files
 ###########
 
+# Compiled
+dist/
+
 # Node and Bower directories
 node_modules/
 bower_components/
