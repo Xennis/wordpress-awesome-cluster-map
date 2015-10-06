@@ -17,7 +17,7 @@ function cluster_map($atts, $content) {
 	
 	// Convert strings into JSON arrays, so that JavaScript can handle it
 	$a['center'] = json_encode(explode(',', $a['center']));
-	$content = json_encode(explode(PHP_EOL, strip_tags($content, '<a><img>')));
+	$content = json_encode(explode(PHP_EOL, $content));
 
 	// Get user options
 	$tileLayerURL = get_option('map_tileLayerURL');
