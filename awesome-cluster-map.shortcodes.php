@@ -17,7 +17,7 @@ function cluster_map($atts, $content) {
 	
 	// Convert strings into JSON arrays, so that JavaScript can handle it
 	$a['center'] = json_encode(explode(',', $a['center']));
-	$content = str_replace('\\\\', '<br>', $content); // You can't use <br> direct since the WordPress editior inserts automatically a new line. This would destroy our CSV data.
+	$content = str_replace(array('\\\\', '<p>', '</p>'), array('<br>', '', ''), $content); // You can't use <br> direct since the WordPress editior inserts automatically a new line. This would destroy our CSV data. The <p> tag get's added by the WordPress editor.
 	$content = json_encode(explode(PHP_EOL, $content));	// Split CSV data: One line is one data set
 
 	// Get user options
