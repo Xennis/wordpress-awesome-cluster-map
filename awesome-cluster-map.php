@@ -47,15 +47,9 @@ add_action('admin_init', 'acm_admin_init');
  */
 function acm_enqueue_scripts() {
 
-	// Style
-	wp_enqueue_style('acm-style', plugins_url('dist/awesome-cluster-map.min.css', __FILE__ ) );	
-
-	// Script
-    wp_enqueue_script('acm_leaflet', acm_helper_getBowerResource('/leaflet/dist/leaflet.js'));
-    wp_enqueue_script('acm_leaflet_markercluster', acm_helper_getBowerResource('/leaflet.markerclusterer/dist/leaflet.markercluster.js'));
-    wp_enqueue_script('acm_Leaflet_awesome_markers', acm_helper_getBowerResource('/Leaflet.awesome-markers/dist/leaflet.awesome-markers.min.js'));
-    wp_enqueue_script('acm_Leaflet_minimap', plugins_url('node_modules/leaflet-minimap/dist/Control.MiniMap.min.js', __FILE__) );
-	wp_enqueue_script(ACM_NAME, plugins_url('/src/js/'.ACM_NAME.'.js', __FILE__), array('jquery'));	
+	// Style and script
+	wp_enqueue_style('acm-style', plugins_url('dist/style/awesome-cluster-map.min.css', __FILE__ ) );	
+	wp_enqueue_script('acm-script', plugins_url('dist/awesome-cluster-map.min.js', __FILE__ ) );	
 }
 add_action('wp_enqueue_scripts', 'acm_enqueue_scripts');
 

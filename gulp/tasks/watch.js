@@ -4,4 +4,5 @@ var config = require('../config').watch,
 
 gulp.task('watch', function () {
 	gulp.watch(config.styles, ['styles']);
+	gulp.watch(config.scripts, ['scripts']);	
 });
