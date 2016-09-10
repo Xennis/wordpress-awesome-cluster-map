@@ -23,11 +23,9 @@ require_once(ACM_DIR.'/src/php/helper.php');
  */
 function acm_admin_init() {
 	$settings = array(
-		'map_tileLayerURL' => 'http://otile{s}.mqcdn.com/tiles/1.0.0/{type}/{z}/{x}/{y}.jpg',
+		'map_tileLayerURL' => 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
 		'map_tileLayerOptions' => '{
-type: \'map\',
-attribution: \'&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors | Tiles Courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png">\',
-subdomains: \'1234\'
+attribution: \'&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors\'
 }',
 		'clustering_maxClusterRadius' => 80
 	);
