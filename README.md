@@ -7,14 +7,12 @@ and [Leaflet.awesome-markers](https://github.com/lvoogdt/Leaflet.awesome-markers
 to cluster pretty markers. Additionally [Leaflet-MiniMap](https://github.com/Norkart/Leaflet-MiniMap)
 is used for showing an overview map.
 
-### Setup
+## Setup
 
 * (Install development requirements: `npm install`)
 * Install requirements: `bower install`
 
-### Usage
-
-#### Example
+## Usage
 
 Lets create a map with the initial center of the location 60.628 latitude and
 6.41 longitude and add three markers to this map:
@@ -28,17 +26,21 @@ Lets create a map with the initial center of the location 60.628 latitude and
 
 The markers are in CSV format:
 
-* latitude
-* longitude
-* icon ([Bootstraps glyphicons](http://getbootstrap.com/components/#glyphicons), e.g. use `glass`)
-* color of the marker (e.g. `red`)
-* text for the popup
+1. Latitude
+2. Longitude
+3. Icon ([Bootstraps glyphicons](http://getbootstrap.com/components/#glyphicons), e.g. use `glass`)
+4. Color of the marker (e.g. `red`)
+5. Text for the popup
 
-![example_cluster_map](_screenshots/1.png)
+The three defined markers:
 
 ![example_cluster_map](_screenshots/2.png)
 
-#### Options
+Clustered markers:
+
+![example_cluster_map](_screenshots/1.png)
+
+### Options
 
 | Name      | Default | Description                                     |
 |-----------|---------|-------------------------------------------------|
