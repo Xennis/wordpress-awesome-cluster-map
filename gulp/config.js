@@ -1,5 +1,13 @@
 /*global require, module, __dirname */
 module.exports = {
+	images: {
+		src: [
+			'bower_components/leaflet/dist/images/*.*',
+			'bower_components/Leaflet.awesome-markers/dist/images/*.*',
+			'bower_components/leaflet-minimap/dist/images/*.*'
+		],
+		dest: 'dist/images'
+	},
 	scripts: {
 		src: [
 			'bower_components/leaflet/dist/leaflet.js',
@@ -13,7 +21,7 @@ module.exports = {
 	},	
 	styles: {
 		src: 'src/less/awesome-cluster-map.less',
-		dest: 'dist/style/'
+		dest: 'dist/'
 	},
 	watch: {
 		styles: 'src/less/*.less',

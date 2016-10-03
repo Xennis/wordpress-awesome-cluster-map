@@ -1,15 +1,16 @@
 {
   "name": "wp-awesome-cluster-map",
   "devDependencies": {
-	"gulp": "3.9.x",
-	"gulp-clean-css": "2.0.x",
-	"gulp-concat": "2.6.x",
-	"gulp-less": "3.1.x",
-	"gulp-load-plugins": "1.2.x",
-	"gulp-notify": "2.2.x",
-	"gulp-rename": "1.2.x",
-	"gulp-uglify": "1.5.x",
-	"gulp-util": "3.0.x",
-	"require-dir": "0.3.x"
+    "gulp": "3.9.x",
+    "gulp-clean-css": "2.0.x",
+    "gulp-concat": "2.6.x",
+    "gulp-less": "3.1.x",
+    "gulp-load-plugins": "1.2.x",
+    "gulp-notify": "2.2.x",
+    "gulp-rename": "1.2.x",
+    "gulp-uglify": "1.5.x",
+    "gulp-util": "3.0.x",
+    "pump": "1.0.x",
+    "require-dir": "0.3.x"
   }
 }

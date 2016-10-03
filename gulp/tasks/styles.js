@@ -4,7 +4,7 @@ var config = require('../config').styles,
 	gulp = require('gulp'),
 	$ = require('gulp-load-plugins')();
 
-gulp.task('styles', function () {
+gulp.task('styles', ['images'], function () {
 	return gulp.src(config.src)
 		.pipe($.less({
 			paths: [ path.join(__dirname, 'less', 'includes') ]

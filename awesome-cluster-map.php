@@ -46,8 +46,8 @@ add_action('admin_init', 'acm_admin_init');
 function acm_enqueue_scripts() {
 
 	// Style and script
-	wp_enqueue_style('acm-style', plugins_url('dist/style/awesome-cluster-map.min.css', __FILE__ ) );	
-	wp_enqueue_script('acm-script', plugins_url('dist/awesome-cluster-map.min.js', __FILE__ ) );	
+	wp_enqueue_style('acm-style', plugins_url('dist/awesome-cluster-map.min.css', __FILE__ ) );
+	wp_enqueue_script('acm-script', plugins_url('dist/awesome-cluster-map.min.js', __FILE__ ) );
 }
 add_action('wp_enqueue_scripts', 'acm_enqueue_scripts');
 
@@ -56,12 +56,12 @@ add_action('wp_enqueue_scripts', 'acm_enqueue_scripts');
  * @param array $links
  */
 function acm_plugin_action_links( $links ) {
-   $links[] = '<a href="'.admin_url('options-general.php?page=acm-options').'">Settings</a>';
-   return $links;
+	$links[] = '<a href="'.admin_url('options-general.php?page=acm-options').'">Settings</a>';
+	return $links;
 }
 add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'acm_plugin_action_links');
 
-/*
+/**
  * Include scripts
  */
 require_once(ACM_DIR.'/'.ACM_NAME.'.shortcodes.php');

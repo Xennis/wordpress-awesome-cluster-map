@@ -6,8 +6,8 @@
  * @return string
  */
 function cluster_map($atts, $content) {
-    $a = shortcode_atts( array(
-        'height' => '500px',
+	$a = shortcode_atts( array(
+		'height' => '500px',
 		'width' => '100%',
 		'center' => '[0, 0]',
 		'zoom' => 3,

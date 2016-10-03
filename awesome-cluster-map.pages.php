@@ -54,7 +54,7 @@ function acm_page_options() {
  ?>
         </table>
 		<?php submit_button(); ?>
-    </form>	
+    </form>
 </div>
 <?php
 }

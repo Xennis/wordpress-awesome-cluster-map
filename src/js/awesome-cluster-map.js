@@ -1,4 +1,5 @@
 /**
+ * AwesomeClusterMap
  * 
  * @param {string} tileLayerURL Tile layer URL
  * @param {object} tileLayerOptions Tile layer options
