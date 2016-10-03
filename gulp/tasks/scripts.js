@@ -4,9 +4,9 @@ var config = require('../config').scripts,
 	$ = require('gulp-load-plugins')();
 
 gulp.task('scripts', function() {
-  return gulp.src(config.src)
-    .pipe($.concat(config.name))
-    .pipe(gulp.dest(config.dest))
-	//.pipe($.uglify())
+	return gulp.src(config.src)
+		.pipe($.concat(config.name))
+		.pipe(gulp.dest(config.dest))
+		//.pipe($.uglify())
 	;
 });
