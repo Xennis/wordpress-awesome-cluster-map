@@ -25,7 +25,7 @@ function acm_admin_init() {
 	$settings = array(
 		'map_tileLayerURL' => 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
 		'map_tileLayerOptions' => '{
-attribution: \'&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors\'
+attribution: \'&copy; <a href="http://osm.org/copyright" target="_blank">OpenStreetMap</a> contributors\'
 }',
 		'clustering_maxClusterRadius' => 80
 	);
