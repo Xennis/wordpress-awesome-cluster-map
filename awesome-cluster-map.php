@@ -16,7 +16,7 @@ define('ACM_NAME', dirname(plugin_basename( __FILE__ )));
  * Plugin directory 
  */
 define('ACM_DIR', WP_PLUGIN_DIR.'/'.ACM_NAME);
-require_once(ACM_DIR.'/src/php/helper.php');
+require_once(ACM_DIR.'/'.ACM_NAME.'.helper.php');
 
 /**
  * Admin init: register settings
