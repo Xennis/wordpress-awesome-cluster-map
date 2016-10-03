@@ -9,7 +9,7 @@ function cluster_map($atts, $content) {
 	$a = shortcode_atts( array(
 		'height' => '500px',
 		'width' => '100%',
-		'center' => '[0, 0]',
+		'center' => '0, 0',
 		'zoom' => 3,
 		'line' => 'false',
 		'minimap' => 'true'
@@ -18,7 +18,7 @@ function cluster_map($atts, $content) {
 	// Convert strings into JSON arrays, so that JavaScript can handle it
 	$a['center'] = json_encode(explode(',', $a['center']));
 	$content = str_replace(array('\\\\', '<p>', '</p>'), array('<br>', '', ''), $content); // You can't use <br> direct since the WordPress editior inserts automatically a new line. This would destroy our CSV data. The <p> tag get's added by the WordPress editor.
-	$content = json_encode(explode(PHP_EOL, $content));	// Split CSV data: One line is one data set
+	$content = json_encode(explode(PHP_EOL, $content)); // Split CSV data: One line is one data set
 
 	// Get user options
 	$tileLayerURL = get_option('map_tileLayerURL');

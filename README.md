@@ -4,13 +4,13 @@ WordPress plugin to create awesome marker cluster maps with OpenStreetMap (OSM).
 This plugin is build with [Leaflet](http://leafletjs.com/) as OSM JavaScript
 library and [Leaflet.markercluster](https://github.com/Leaflet/Leaflet.markercluster)
 and [Leaflet.awesome-markers](https://github.com/lvoogdt/Leaflet.awesome-markers)
-to cluster pretty markers.
+to cluster pretty markers. Additionally [Leaflet-MiniMap](https://github.com/Norkart/Leaflet-MiniMap)
+is used for showing an overview map.
 
 ### Setup
 
-Install requirements
-
-* `bower install`
+* (Install development requirements: `npm install`)
+* Install requirements: `bower install`
 
 ### Usage
 
@@ -37,3 +37,14 @@ The markers are in CSV format:
 ![example_cluster_map](_screenshots/1.png)
 
 ![example_cluster_map](_screenshots/2.png)
+
+#### Options
+
+| Name      | Default | Description                                     |
+|-----------|---------|-------------------------------------------------|
+| `center`  | "0,0"   | Initial center (latitude, longitude) of the map |
+| `zoom`    | 3       | Initial zoom of the map                         |
+| `height`  | "500px" | Height (CSS value) of the map                   |
+| `width`   | "100%"  | Width (CSS value) of the map                    |
+| `line`    | "false" | "true" to connect markers by a line             |
+| `minimap` | "true"  | "false" to hide overview map                    |
