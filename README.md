@@ -16,13 +16,13 @@ is used for showing an overview map.
 
 #### Example
 
-Lets create a map with the initial center of the location 50 latitude and 0
-longitude and add three markers to this map:
+Lets create a map with the initial center of the location 60.628 latitude and
+6.41 longitude and add three markers to this map:
 ```
-[cluster_map center="50,0" zoom=3 height="500px"]
-45.3,0.25,glass,red,My first marker
-45.25,0.2,leaf,blue,Another marker with a <a href="#example">link</a>
-45.3,0.3,wrench,green,My first marker
+[cluster_map center="60.628,6.41" zoom=12 height="500px"]
+60.62888,6.41035,glass,red,Beach Bar
+60.62849,6.414089,leaf,blue,The new <a href="#example">Central Park</a>!
+60.62919,6.41716,wrench,green,My first marker
 [/cluster_map]
 ```
 
