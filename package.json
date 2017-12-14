@@ -11,6 +11,6 @@
     "gulp-uglify": "1.5.x",
     "gulp-util": "3.0.x",
     "pump": "1.0.x",
-    "require-dir": "0.3.x"
+    "require-dir": "0.3.2"
   }
 }
