@@ -1,4 +1,4 @@
 /*global require, module, __dirname */
-var gulp = require('gulp');
+const gulp = require('gulp');
 
 gulp.task('default', ['watch']);

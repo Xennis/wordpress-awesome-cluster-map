@@ -1,19 +1,19 @@
 /*global require, module, __dirname */
-var config = require('../config').styles,
-	path = require('path'),
-	gulp = require('gulp'),
-	$ = require('gulp-load-plugins')();
+const config = require('../config').styles;
+const path = require('path');
+const gulp = require('gulp');
+const plugins = require('gulp-load-plugins')();
 
 gulp.task('styles', ['images'], function () {
 	return gulp.src(config.src)
-		.pipe($.less({
+		.pipe(plugins.less({
 			paths: [ path.join(__dirname, 'less', 'includes') ]
 		}))
 		.on('error', handleError)
-		.pipe($.rename({
+		.pipe(plugins.rename({
 			suffix: '.min'
 		}))
-		.pipe($.cleanCss({
+		.pipe(plugins.cleanCss({
 			compatibility: 'ie8'
 		}))
 		.pipe(gulp.dest(config.dest))
@@ -21,8 +21,8 @@ gulp.task('styles', ['images'], function () {
 });
 
 var handleError = function (err) {
-	new $.util.log(err);
-	$.notify.onError({
+	new plugins.util.log(err);
+	plugins.notify.onError({
 		title: err.plugin+' error',
 		message: path.basename(err.filename)+" on line "+err.line+":"+err.column,
 		sound: false

@@ -1,13 +1,13 @@
 /*global require, module, __dirname */
-var config = require('../config').scripts,
-	pump = require('pump'),
-	gulp = require('gulp'),
-	$ = require('gulp-load-plugins')();
+const config = require('../config').scripts;
+const pump = require('pump');
+const gulp = require('gulp');
+const plugins = require('gulp-load-plugins')();
 
 gulp.task('scripts', function(cb) {
 	pump([
 		gulp.src(config.src),
-		$.concat(config.name),
+		plugins.concat(config.name),
 		//$.uglify({
 		//	preserveComments: 'license'
 		//}),

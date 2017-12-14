@@ -1,7 +1,6 @@
 /*global require, module, __dirname */
-var config = require('../config').images,
-	gulp = require('gulp'),
-	$ = require('gulp-load-plugins')();
+const config = require('../config').images;
+const gulp = require('gulp');
 
 gulp.task('images', function() {
 	return gulp.src(config.src)
