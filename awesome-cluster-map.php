@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Awesome Cluster Map
-Plugin URI: https://github.com/Xennis/awesome-cluster-map
+Plugin URI: https://github.com/Xennis/wordpress-awesome-cluster-map
 Description: Create awesome marker cluster maps with OpenStreetMap (Leaflet)
 Version: 1.1.0
 Author: Xennis
