@@ -25,11 +25,14 @@ function cluster_map($atts, $content) {
 	$tileLayerOptions = get_option('map_tileLayerOptions');
 	$maxClusterRadius = get_option('clustering_maxClusterRadius');
 	
+	// Create unique identifier for container element
+	$containerElement = uniqid('map-');
+	
 	return <<<HTML
-<div id="map" style="width: {$a['width']}; height: {$a['height']};"></div>
+<div id="{$containerElement}" style="width: {$a['width']}; height: {$a['height']};"></div>
 <script>
 	var clusterMap = AwesomeClusterMap('{$tileLayerURL}', {$tileLayerOptions}, {
-		containerElement: 'map',
+		containerElement: '{$containerElement}',
 		center: {$a['center']},
 		zoom: {$a['zoom']},
 		minimap: {$a['minimap']} 
