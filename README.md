@@ -42,11 +42,12 @@ Clustered markers:
 
 ### Options
 
-| Name      | Default | Description                                     |
-|-----------|---------|-------------------------------------------------|
-| `center`  | "0,0"   | Initial center (latitude, longitude) of the map |
-| `zoom`    | 3       | Initial zoom of the map                         |
-| `height`  | "500px" | Height (CSS value) of the map                   |
-| `width`   | "100%"  | Width (CSS value) of the map                    |
-| `line`    | "false" | "true" to connect markers by a line             |
-| `minimap` | "true"  | "false" to hide overview map                    |
+| Name               | Default | Description                                     |
+|--------------------|---------|-------------------------------------------------|
+| `center`           | "0,0"   | Initial center (latitude, longitude) of the map |
+| `zoom`             | 3       | Initial zoom of the map                         |
+| `height`           | "500px" | Height (CSS value) of the map                   |
+| `width`            | "100%"  | Width (CSS value) of the map                    |
+| `line`             | "false" | "true" to connect markers by a line             |
+| `minimap`          | "true"  | "false" to hide overview map                    |
+| `ignoreDuplicates` | "true"  | Add only one marker instead of two identical    |

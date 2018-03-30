@@ -37,26 +37,56 @@ function AwesomeClusterMap(tileLayerURL, tileLayerOptions, mapOptions, maxCluste
 	var polylineLatLng = [];
 	
 	/**
-	 * Creats a marker and adds it to the marker cluster group.
+	 * Creates a marker.
 	 * 
 	 * @param {array} postion
 	 * @param {string} icon
 	 * @param {string} color
 	 * @param {string} text
+	 * @return {L.Marker} Created marker
 	 */
-	var createMarker = function(postion, icon, color, text) {
-		// Create marker
-		var marker = L.marker(postion, {
+	var createMarker = function(position, icon, color, text) {
+		return L.marker(position, {
 			icon: L.AwesomeMarkers.icon({
 				icon: icon,
 				markerColor: color
 			})
 		})
 		.bindPopup(text);
-		// Add marker's postion to polyline array
+	};
+	
+	/**
+	 * Adds a marker to the marker cluster group.
+	 * 
+	 * @param {L.Marker} marker
+	 * @param {boolean} isDuplicate Marker is a duplicate
+	 */
+	var addMarker = function(marker, isDuplicate) {
+			// Add marker's postion to polyline array
 		polylineLatLng.push(marker.getLatLng());
 		// Add marker to cluster
-		markerClusterGroup.addLayer(marker);
+		if (!isDuplicate) {
+			markerClusterGroup.addLayer(marker);
+		}
+	};
+	
+	/**
+	 * Simple hash function accordingly to Java.
+	 * 
+	 * @param {string} input
+	 * @return {string} Hash code
+	 */
+	var hashCode = function (input) {
+		var hash = 0;
+		if (input.length === 0) {
+			return hash;
+		}
+		for (var i = 0; i < input.length; i++) {
+			var char = input.charCodeAt(i);
+			hash = ((hash << 5) - hash) + char;
+			hash = hash & hash; // Convert to 32 bit integer
+		}
+		return hash;
 	};
 	
 	return {
@@ -64,13 +94,29 @@ function AwesomeClusterMap(tileLayerURL, tileLayerOptions, mapOptions, maxCluste
 		 * Converts the given CSV data into marker.
 		 * 
 		 * @param {string} csvData Data in CSV format
+		 * @param {boolean} ignoreDuplicates Ignore duplicate marker
 		 */
-		convertContent: function(csvData) {
+		convertContent: function(csvData, ignoreDuplicates) {
+			var itemHashes = [];
 			for (var i=0; i<csvData.length; i++) {
-				var item = csvData[i].split(',');
-				if (item.length === 5) {
-					createMarker([item[0], item[1]], item[2], item[3], item[4]);
+				var item = csvData[i];
+				var isDuplicate = false;
+				
+				if (ignoreDuplicates) {
+					var itemHash = hashCode(item);
+					if (itemHashes.includes(itemHash)) {
+						isDuplicate = true;
+					} else {
+						itemHashes.push(itemHash);
+					}
 				}
+				
+				var itemValues = item.split(',');
+				if (itemValues.length === 5) {
+					var marker = createMarker([itemValues[0], itemValues[1]], itemValues[2], itemValues[3], itemValues[4], isDuplicate);
+					addMarker(marker, isDuplicate);
+				}
+				
 			}
 		},
 		/**

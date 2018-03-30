@@ -12,7 +12,8 @@ function cluster_map($atts, $content) {
 		'center' => '0, 0',
 		'zoom' => 3,
 		'line' => 'false',
-		'minimap' => 'true'
+		'minimap' => 'true',
+		'ignoreDuplicates' => 'true'
 	), $atts);
 	
 	// Convert strings into JSON arrays, so that JavaScript can handle it
@@ -35,10 +36,10 @@ function cluster_map($atts, $content) {
 		containerElement: '{$containerElement}',
 		center: {$a['center']},
 		zoom: {$a['zoom']},
-		minimap: {$a['minimap']} 
+		minimap: {$a['minimap']}
 	}, {$maxClusterRadius});
 
-	clusterMap.convertContent({$content});
+	clusterMap.convertContent({$content}, {$a['ignoreDuplicates']});
 	if ({$a['line']}) {
 		clusterMap.createPolyline();
 	}
