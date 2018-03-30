@@ -3,7 +3,7 @@
 Plugin Name: Awesome Cluster Map
 Plugin URI: https://github.com/Xennis/awesome-cluster-map
 Description: Create awesome marker cluster maps with OpenStreetMap (Leaflet)
-Version: 1.0.0
+Version: 1.0.1
 Author: Xennis
 Text Domain: awesome-cluster-map
 */
