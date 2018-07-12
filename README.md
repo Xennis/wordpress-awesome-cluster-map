@@ -9,8 +9,9 @@ is used for showing an overview map.
 
 ## Setup
 
-* (Install development requirements: `npm install`)
+* Install development requirements: `npm install`
 * Install requirements: `bower install`
+* Build JavaScript and CSS: `gulp`
 
 ## Usage
 
