@@ -1,8 +1,13 @@
 # Changelog
 
-### 1.1.0 (release candidate)
+### 1.1.0
 
 * Add option `ignoreDuplicates` to ignore identical markers
+* Update all Leaflet dependencies to newest versions
+* Update development dependencies
+
+Known issues:
+* Norkart/Leaflet-MiniMap#138: Deprecated warning since MiniMap usees L.Mixin.Events
 
 ### 1.0.1
 
