@@ -5,6 +5,5 @@
 # Compiled
 dist/
 
-# Node and Bower directories
+# Node
 node_modules/
-bower_components/

@@ -1,5 +1,9 @@
 # Changelog
 
+### 1.2.0 (release candidate)
+
+* Remove bower package manager (build dependency)
+
 ### 1.1.0
 
 * Add option `ignoreDuplicates` to ignore identical markers
@@ -7,7 +11,7 @@
 * Update development dependencies
 
 Known issues:
-* Norkart/Leaflet-MiniMap#138: Deprecated warning since MiniMap usees L.Mixin.Events
+* Norkart/Leaflet-MiniMap#138: Deprecated warning since MiniMap uses L.Mixin.Events
 
 ### 1.0.1
 

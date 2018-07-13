@@ -2,18 +2,18 @@
 module.exports = {
 	images: {
 		src: [
-			'bower_components/leaflet/dist/images/*.*',
-			'bower_components/Leaflet.awesome-markers/dist/images/*.*',
-			'bower_components/leaflet-minimap/dist/images/*.*'
+			'node_modules/leaflet/dist/images/*.*',
+			'node_modules/leaflet.awesome-markers/dist/images/*.*',
+			'node_modules/leaflet-minimap/dist/images/*.*'
 		],
 		dest: 'dist/images'
 	},
 	scripts: {
 		src: [
-			'bower_components/leaflet/dist/leaflet.js',
-			'bower_components/leaflet.markerclusterer/dist/leaflet.markercluster.js',
-			'bower_components/Leaflet.awesome-markers/dist/leaflet.awesome-markers.min.js',
-			'bower_components/leaflet-minimap/dist/Control.MiniMap.min.js',
+			'node_modules/leaflet/dist/leaflet.js',
+			'node_modules/leaflet.markercluster/dist/leaflet.markercluster.js',
+			'node_modules/leaflet.awesome-markers/dist/leaflet.awesome-markers.min.js',
+			'node_modules/leaflet-minimap/dist/Control.MiniMap.min.js',
 			'src/js/awesome-cluster-map.js'
 		],
 		dest: 'dist/',
