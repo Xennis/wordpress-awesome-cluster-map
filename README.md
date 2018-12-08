@@ -1,5 +1,7 @@
 # WordPress Plugin Awesome Cluster Map (OpenStreetMap, Leaflet)
 
+[![Build Status](https://travis-ci.org/Xennis/wordpress-awesome-cluster-map.svg?branch=master)](https://travis-ci.org/Xennis/wordpress-awesome-cluster-map)
+
 WordPress plugin to create awesome marker cluster maps with OpenStreetMap (OSM).
 This plugin is build with [Leaflet](http://leafletjs.com/) as OSM JavaScript
 library and [Leaflet.markercluster](https://github.com/Leaflet/Leaflet.markercluster)
@@ -9,8 +11,8 @@ is used for showing an overview map.
 
 ## Setup
 
-* Install requirements requirements: `npm install`
-* Build JavaScript and CSS: `gulp`
+* Install requirements: `npm install`
+* Build JavaScript and CSS: `./node_modules/gulp/bin/gulp.js`
 
 ## Usage
 
