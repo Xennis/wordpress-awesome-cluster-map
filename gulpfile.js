@@ -1,26 +1,24 @@
-/*global require, module, __dirname */
-const gulp = require('gulp');
-const pump = require('pump');
-const less = require('gulp-less');
-const path = require('path');
-const rename = require('gulp-rename');
+'use strict';
+
 const cleanCss = require('gulp-clean-css');
 const concat = require('gulp-concat');
+const gulp = require('gulp');
+const less = require('gulp-less');
+const path = require('path');
+const pump = require('pump');
+const rename = require('gulp-rename');
 
-gulp.task('default', ['styles', 'scripts', 'watch']);
-
-gulp.task('images', function() {
+function images() {
 	return gulp
 		.src([
 			'node_modules/leaflet/dist/images/*.*',
 			'node_modules/leaflet.awesome-markers/dist/images/*.*',
 			'node_modules/leaflet-minimap/dist/images/*.*'
 		])
-		.pipe(gulp.dest('dist/images'))
-	;
-});
+		.pipe(gulp.dest('dist/images'));
+}
 
-gulp.task('scripts', function(cb) {
+function scripts(cb) {
 	pump([
 		gulp.src([
 			'node_modules/leaflet/dist/leaflet.js',
@@ -31,12 +29,10 @@ gulp.task('scripts', function(cb) {
 		]),
 		concat('awesome-cluster-map.min.js'),
 		gulp.dest('dist')
-	],
-	cb
-	);
-});
+	], cb);
+}
 
-gulp.task('styles', ['images'], function () {
+function compileStyles() {
 	return gulp.src('src/less/awesome-cluster-map.less')
 		.pipe(less({
 			paths: [ path.join(__dirname, 'less', 'includes') ]
@@ -47,11 +43,17 @@ gulp.task('styles', ['images'], function () {
 		.pipe(cleanCss({
 			compatibility: 'ie8'
 		}))
-		.pipe(gulp.dest('dist/'))
-		;
-});
+		.pipe(gulp.dest('dist/'));
+}
+const styles = gulp.series(images, compileStyles)
 
-gulp.task('watch', function () {
-	gulp.watch('src/less/*.less', ['styles']);
-	gulp.watch('src/js/*.js', ['scripts']);
-});
+function watch() {
+	gulp.watch('src/less/*.less', styles);
+	gulp.watch('src/js/*.js', scripts);
+}
+
+exports.images = images;
+exports.scripts = scripts;
+exports.styles = styles;
+exports.watch = watch;
+exports.default = gulp.series(styles, scripts, watch);

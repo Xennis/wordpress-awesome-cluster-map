@@ -8,7 +8,7 @@
     "leaflet-minimap": "3.6.1"
   },
   "devDependencies": {
-    "gulp": "3.9.x",
+    "gulp": "^4.0.0",
     "gulp-clean-css": "^4.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-less": "^4.0.1",
